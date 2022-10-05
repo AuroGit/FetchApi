@@ -17,7 +17,7 @@ img{
 
 /* Background */
 body{
-    background-image: url("https://aurogit.github.io/fetchApi/assets/Starfield.png");
+    background-image: url("../assets/Starfield.png");
     background-color: #001;
     color: #fff;
     overflow-x: hidden;
