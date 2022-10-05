@@ -1,0 +1,175 @@
+@import url("charInfo.css");
+
+/* Main Content */
+.container{
+    width: 100vw;
+    position: relative;
+    min-height: 100vh;
+    z-index: 10;
+}
+
+    /* Header */
+header{
+    position: relative;
+    height: 15vh;
+    padding: 25px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    border-bottom: solid 1px rgba(255,255,0,.5);
+    z-index: 100;
+}
+
+.logo{
+    position: absolute;
+    height: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    /* Filtro */
+.filtro{
+    background-color: rgba(255,255,0,.5);
+    padding: 10px 50px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+select{
+    margin-left: 10px;
+    border: none;
+    border-bottom: solid 1px #fff;
+    color: #fff;
+    background-color: transparent;
+    width: 140px;
+    outline: 0;
+    cursor: pointer;
+    padding-left: 10px;
+}
+select>optgroup, select option[selected]{
+    background-color: #000;
+}
+select option:checked{
+    background-color: #ff0;
+    color: #000; 
+}
+
+    /* Personajes */
+.characters{
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    padding: 50px;
+    min-height: 70vh;
+    overflow-y: scroll;
+}
+.grid{grid-template-columns: repeat(auto-fill, 175px);display: grid;}
+.flex{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+:root{--img-width: 170px;}
+.char{
+    background-size: 100% 1000%;
+    transition-property: background-size, filter, background-image;
+    transition-duration: .4s;
+    cursor: pointer;
+    filter: saturate(50%);
+    border: solid 1px #444;
+    overflow: hidden;
+    min-width: var(--img-width);
+}
+
+.char>img{
+    width: var(--img-width);
+    display: block;
+}
+.char-bg-azul{
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));
+}
+.char-bg-verde{
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));
+}
+.char-bg-rojo{
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(192,0,0,.75));
+}
+.char-bg-violeta{
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(128,0,128,.75));
+}
+
+@keyframes verde-blanco {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,255,255,.75) 66%, #fff );}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));}
+}
+@keyframes verde-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+@keyframes azul-verde {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));}
+}
+@keyframes dorado-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,192,0,.75));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+@keyframes rosa-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,64,128,1));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+.char-bg-ahsoka:hover{animation: verde-blanco 2s linear infinite;}
+.char-bg-luke:hover{animation: verde-azul 2s linear infinite;}
+.char-bg-mundi:hover{animation: azul-verde 2s linear infinite;}
+.char-bg-yarael:hover{animation: dorado-azul 2s linear infinite;}
+.char-bg-gallia:hover{animation: rosa-azul 2s linear infinite;}
+
+.char-bg-ahsoka{background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,255,255,.75) 66%, #fff );}
+.char-bg-luke{background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));}
+.char-bg-mundi{background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+.char-bg-yarael{background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,192,0,.75));}
+.char-bg-gallia{background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,64,128,1));}
+
+.char:hover{
+    background-size: 100% 100%;
+    filter: saturate(100%);
+}
+
+.char>h1{
+    position: absolute;
+    bottom: 0;
+    padding: 5px 25px;
+    width: 100%;
+    transform: translateY(50px);
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(0,0,0,0.75);
+    transition-property: transform;
+    transition-duration: .4s;
+}
+
+.char:hover>h1{transform: translateY(0);}
+
+.display-none{display: none;}
+
+.fadeout{animation: fadeout .5s forwards;}
+
+.fadein{animation: fadein .5s forwards;}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.translate-right{transform: translateX(100%);}
+.translate-left{transform: translateX(-100%);}

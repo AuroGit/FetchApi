@@ -1,0 +1,148 @@
+/* Return Button */
+.return-btn{
+    z-index: 20;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background-color: transparent;
+    color: #fff;
+    border: solid 1px #fff;
+    transition-property: color, background-color, box-shadow;
+    transition-duration: .2s;
+}
+.return-btn:hover{
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ff0, 0 0 5px #fff;
+}
+
+/* Ficha */
+.ficha{
+    padding: 50px;
+    transition-property: transform;
+    transition-duration: .2s;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.ficha>h2{
+    text-align: center;
+    width: 100%;
+}
+    /* Imagen */
+.perfil-img{
+    position: relative;
+    outline: solid 2px #444;
+    /* width: 80%;
+    height: fit-content;
+    max-height: 50%;
+    margin: 0 auto; */
+}
+.perfil-img img{
+    /* width: 100%; */
+    /* max-width: 100%; */
+    display: block;
+    max-height: 100%;
+    object-fit: cover;
+}
+    /* Slider */
+.slider img{
+    /* width: 100%; */
+    /* bottom: 0; */
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: opacity .2s;
+    object-fit: cover;
+}
+.slider img[data-active], #slider-nav li[data-active]{
+    opacity: 1;
+}
+#slider-nav{
+    display: flex;
+    position: absolute;
+    background-color: rgba(0,0,0,.75);
+    width: 100%;
+    bottom: 0;
+    padding: 10px 0;
+    justify-content: space-around;
+    font-size: 12px;
+}
+#slider-nav li{
+    display: inline;
+    opacity: .5;
+    transition: opacity .2s;
+    cursor: default;
+}
+#slider-nav li:not([data-active]):hover{
+    opacity: .75;
+    cursor: pointer;
+}
+
+    /* Datos */
+.datos>ul{list-style: none;}
+.datos>ul>li{margin-bottom: 10px;}
+.datos ul li *{display: inline;}
+.datos>ul>li>p{margin-left: 10px;}
+
+.perfil-bg-azul{
+    animation: fade 2.5s ease-in-out infinite;
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));
+}
+.perfil-bg-verde{
+    animation: fade 2.5s ease-in-out infinite;
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75));
+}
+.perfil-bg-rojo{
+    animation: fade 2.5s ease-in-out infinite;
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(192,0,0,.75));
+}
+.perfil-bg-violeta{
+    animation: fade 2.5s ease-in-out infinite;
+    background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(128,0,128,.75));
+}
+
+@keyframes ahsoka {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,255,255,.75) 66%, #fff );}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75) 66%, #0c0 );}
+}
+@keyframes verde-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75) 66%, #0c0 );}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+@keyframes azul-verde {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,192,0,.75) 66%, #0c0 );}
+}
+@keyframes dorado-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,192,0,.75));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+@keyframes rosa-azul {
+    from {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(255,64,128,1));}
+    to {background-image: linear-gradient(rgba(0,0,0,.5) 10%, rgba(0,64,255,.75));}
+}
+@keyframes fade {
+    0% {background-size: 100% 1000%;}
+    50% {background-size: 100% 100%;}
+    100% {background-size: 100% 1000%;}
+}
+.perfil-bg-ahsoka {
+    animation: ahsoka 5s linear infinite, fade 2.5s ease-in-out infinite;
+}
+.perfil-bg-luke{
+    animation: verde-azul 5s linear infinite, fade 2.5s ease-in-out infinite;
+}
+.perfil-bg-mundi{
+    animation: azul-verde 5s linear infinite, fade 2.5s ease-in-out infinite;
+}
+.perfil-bg-yarael{
+    animation: dorado-azul 5s linear infinite, fade 2.5s ease-in-out infinite;
+}
+.perfil-bg-gallia{
+    animation: rosa-azul 5s linear infinite, fade 2.5s ease-in-out infinite;
+}

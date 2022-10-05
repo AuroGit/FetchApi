@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>[KNIGHTS] a STAR WARS web</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <!-- Background -->
+    <div id="background">
+        <img src="assets/stars-1.png" alt="" class="stars-1">
+        <img src="assets/stars-2.png" alt="" class="stars-2">
+        <img src="" alt="" class="planet display-none">
+        <div class="planet-click-area display-none"></div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="container fadein">
+        <header>
+            <img class="logo" src="assets/knights-logo.svg" alt="">
+        </header>
+        
+        <div class="filtro fadein">
+            <h3>Filtrar:</h3>
+            <select class="filtro-select">
+                <optgroup label="Rango">
+                    <option class="option-item" value="maestro jedi">Maestro Jedi</option>
+                    <option class="option-item" value="caballero">Caballero Jedi</option>
+                    <option class="option-item" value="padawan">Padawan</option>
+                    <option class="option-item" value="lord sith">Lord Sith</option>
+                </optgroup>
+                <optgroup label="Facción">
+                    <option class="option-item" value="jedi">Jedi</option>
+                    <option class="option-item" value="sith">Sith</option>
+                </optgroup>
+                <optgroup label="Color del arma">
+                    <option class="option-item" value="azul">Azul</option>
+                    <option class="option-item" value="verde">Verde</option>
+                    <option class="option-item" value="violeta">Violeta</option>
+                    <option class="option-item" value="blanco">Blanco</option>
+                    <option class="option-item" value="dorado">Dorado</option>
+                    <option class="option-item" value="rosa">Rosa</option>
+                    <option class="option-item" value="rojo">Rojo</option>
+                </optgroup>
+                <option class="option-item" selected value="todo">Todo</option>
+            </select>
+        </div>
+        <main class="characters fadein grid"></main>
+        <div class="carga" style="display: none;">
+            <span class="loader"></span>
+        </div>
+    </div>
+
+    <div class="planet-info" style="display: none;">
+        <h2 id="nombre-planeta">Planeta X</h2>
+        <hr>
+        <div class="datos">
+            <ul>
+                <li><h4>Diámetro:</h3><p id="diametro"></p></li>
+                <li><h4>Gravedad:</h3><p id="gravedad"></p></li>
+                <li><h4>Clima:</h3><p id="clima"></p></li>
+                <li><h4>Población:</h3><p id="poblacion"></p></li>
+            </ul>
+        </div>
+        <hr>
+        <button class="cerrar"></button>
+    </div>
+    
+    <div class="ficha translate-left">
+        <h2 id="nombre"></h2>
+        <div class="perfil-img">
+            <img id="imagen" src="" alt="">
+            <div class="slider" style="display: none;">
+                <img id="slider-1" src="" alt="">
+                <img id="slider-2" src="" alt="">
+                <img id="slider-3" src="" alt="">
+                <ul id="slider-nav">
+                    <li id="rango-1">Padawan</li>
+                    <li id="rango-2">Caballero</li>
+                    <li id="rango-3" style="display: none;">Maestro</li>
+                </ul>
+            </div>
+        </div>
+        <div class="datos">
+            <ul>
+                <li><h3>Facción:</h3><p id="faccion"></p></li>
+                <li><h3>Rango:</h3><p id="rango"></p></li>
+                <li><h3>Especie:</h3><p id="especie"></p></li>
+                <li><h3>Género:</h3><p id="genero"></p></li>
+                <li><h3>Año:</h3><p id="año"></p></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="arma translate-right">
+        <div id="arma-1" class="lightsaber">
+            <button id="cristal" class="display-none cristal-toggle" 
+                title="Cambiar cristal"></button>
+            <label class="handler">
+                <input type="checkbox" checked>
+                <img class="handler-img" src="" alt="">
+            </label>
+            <div id="laser-main" class="laser"></div>
+            <div id="laser-dual" style="display: none;" 
+            class="laser laser-rojo laser-length-l order-1 laser-reverse"></div>
+        </div>
+
+        <div id="arma-2" class="lightsaber" style="display: none;">
+            <label class="handler">
+                <input type="checkbox" checked>
+                <img class="handler-img" src="" alt="">
+            </label>
+            <div id="laser-2" class="laser"></div>
+        </div>
+
+        <div id="arma-3" class="lightsaber" style="display: none;">
+            <label class="handler">
+                <input type="checkbox" checked>
+                <img class="handler-img" src="" alt="">
+            </label>
+            <div id="laser-3" class="laser"></div>
+        </div>
+
+        <div id="arma-4" class="lightsaber" style="display: none;">
+            <label class="handler">
+                <input type="checkbox" checked>
+                <img class="handler-img" src="" alt="">
+            </label>
+            <div id="laser-4" class="laser"></div>
+        </div>
+    </div>
+
+    <button class="return-btn display-none">ATRÁS</button>
+    
+    <script src="js/mainScreen.js" type="module"></script>
+    <script src="js/filtro.js" type="module"></script>
+    <script src="js/planetData.js" type="module"></script>
+    <script src="js/slider.js" type="module"></script>
+    <script name="parallax-bg">
+        document.addEventListener("mousemove", parallax);
+
+        function parallax(e) {
+            const x = e.pageX; const y = e.pageY;
+            
+            const stars1 = document.querySelector(".stars-1");
+            stars1.style.transform = `
+            translate(calc(${-50+((x-(window.innerWidth/2))/1000)}%), 
+            calc(${-50+((y-(window.innerHeight/2))/1000)}%))`;
+            
+            const stars2 = document.querySelector(".stars-2");
+            stars2.style.transform = `
+            translate(calc(${-50+((x-(window.innerWidth/2))/875)}%), 
+            calc(${-50+((y-(window.innerHeight/2))/875)}%))`;
+
+            const planet = document.querySelector(".planet");
+            planet.style.transform = `
+            translate(calc(${-50+((x-(window.innerWidth/2))/250)}%), 
+            calc(${-50+((y-(window.innerHeight/2))/250)}%))`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* Header */
+@media (min-height: 900px) {
+    .logo{padding: 25px;}
+}
+
+@media (max-height: 899px) {
+    .logo{padding: 10px;}
+}
+
+/* Data */
+@media screen and (orientation: landscape) {
+    .return-btn{
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .arma{display: flex;}
+    .ficha{
+        position: fixed;
+        width: 30%;
+        max-width: 400px;
+        height: calc(100% - 15vh);
+        bottom: 0;
+        z-index: 30;
+        flex-direction: column;
+        background-color: rgba(32,32,32,.5);
+        border-right: solid 1px #444;
+    }
+    .ficha>h2{
+        margin-bottom: 10px;
+    }
+    .perfil-img{
+        width: 80%;
+        height: fit-content;
+        max-height: 50%;
+        margin: 0 auto;
+    }
+    .perfil-img img{
+        width: 100%;
+    }
+    .perfil-img:has(.slider img[data-active]){
+        height: 40%;
+    }
+    .slider{
+        display: block;
+        width: 100%;
+        height: fit-content;
+    }
+    .slider img{
+        width: 100%;
+        bottom: 0;
+    }
+    .ficha .datos{
+        max-width: 80%;
+        margin-top: 20px;
+    }
+}
+
+@media (orientation: portrait) or ((max-width: 1023px) and (max-height: 599)) {
+    .return-btn{
+        position: fixed;
+        top: 200px;
+        right: 25px;
+    }
+    .arma{display: none;}
+    .ficha{
+        position: absolute;
+        width: 100vw;
+        bottom: 0;
+        max-height: 50vh;
+        background-color: rgba(32,32,32,.9);
+        border-top: solid 1px #444;
+    }
+    .ficha>h2{
+        font-size: 2.5em;
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        margin-right: 10px;
+        width: fit-content;
+    }
+
+        .perfil-img{
+            max-width: 50%;
+            min-width: 200px;
+            width: fit-content;
+            height: 100%;
+        }
+
+    .perfil-img img{
+        width: 100%;
+    }
+    .perfil-img:has(.slider img[data-active]){
+        width: fit-content;
+    }
+
+        .slider{
+            width: fit-content;
+            height: fit-content;
+        }
+        .slider img{
+            height: 100px;
+            width: 100px;
+        }
+
+    .ficha .datos{
+        font-size: 1.5em;
+        margin-left: 20px;
+    }
+}

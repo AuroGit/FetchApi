@@ -1,0 +1,57 @@
+.planet-click-area{
+    cursor: pointer;
+    width: 575px;
+    height: 575px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.planet-info{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: #333;
+    border: solid 2px #666;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.75);
+    z-index: 25;
+}
+.planet-info #nombre-planeta{padding: 10px 0;}
+.planet-info hr{border: solid 1px#444}
+.planet-info h2, .planet-info ul{margin: 0 20px;}
+.planet-info .datos{margin-top: 10px;}
+.cerrar{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 25px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.cerrar::after, .cerrar::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50%;
+    background-color: #fff;
+    padding: 10px 0;
+    opacity: .5;
+    transition-property: opacity;
+    transition-duration: .2s;
+}
+.cerrar::before{transform: rotate(45deg);}
+.cerrar::after{transform: rotate(-45deg);}
+.cerrar:hover:after, .cerrar:hover:before{opacity: 1;}
