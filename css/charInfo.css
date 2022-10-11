@@ -25,43 +25,40 @@
     transition-duration: .2s;
     backdrop-filter: blur(5px);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(32,32,32,.5);
+    border-right: solid 1px #444;
+    z-index: 30;
 }
     
 .ficha>h2{
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
 }
     /* Imagen */
 .perfil-img{
     position: relative;
     outline: solid 2px #444;
-    /* width: 80%;
-    height: fit-content;
-    max-height: 50%;
-    margin: 0 auto; */
+    width: 90%;
+    max-width: 300px;
 }
 .perfil-img img{
-    /* width: 100%; */
-    /* max-width: 100%; */
     display: block;
-    max-height: 100%;
-    object-fit: cover;
+    width: 100%;
+    transition-property: opacity;
+    transition-duration: .2s;
 }
-    /* Slider */
-.slider img{
-    /* width: 100%; */
-    /* bottom: 0; */
+.perfil-img img:not(:first-child){
     position: absolute;
-    display: block;
+    top: 0;
+}
+.perfil-img img:not([data-active]){
     opacity: 0;
-    transition: opacity .2s;
-    object-fit: cover;
 }
-.slider img[data-active], #slider-nav li[data-active]{
-    opacity: 1;
-}
+    /* Slider Nav*/
 #slider-nav{
     display: flex;
     position: absolute;
@@ -82,8 +79,16 @@
     opacity: .75;
     cursor: pointer;
 }
+#slider-nav li[data-active]{
+    opacity: 1;
+}
 
     /* Datos */
+.datos{
+    width: 90%;
+    max-width: 300px;
+    margin-top: 20px;
+}
 .datos>ul{list-style: none;}
 .datos>ul>li{margin-bottom: 10px;}
 .datos ul li *{display: inline;}
