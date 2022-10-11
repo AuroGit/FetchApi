@@ -4,7 +4,7 @@ import { getChar, getDB, getProp, swapiURL } from "./fetchRequest.js";
 import { planetsArr, trigger, infoDiv } from "./planetData.js";
 import { mainSection } from "./mainScreen.js";
 import { mostrarArma } from "./lightsaberData.js";
-import { imgsArr, navsArr, slider } from "./slider.js";
+import { imgsArr, navsArr } from "./slider.js";
 
 const charDB = await getDB();
 const filtro = document.querySelector(".filtro");
@@ -143,6 +143,7 @@ const añadirPnj = async evt => {
 }
 
 const imagen = document.getElementById("imagen");
+const sliderNav = document.getElementById("slider-nav");
 const mostrarData = (pnj)=> {
     let charPlanet = "";
     const nombre = document.getElementById("nombre");
@@ -155,13 +156,16 @@ const mostrarData = (pnj)=> {
     charPlanet = pnj.planeta.imgUrl;
     nombre.innerText = pnj.nombre;
     faccion.innerText = pnj.faccion;
-    rango.innerText = pnj.rango[pnj.rango.length-1];
+    rango.innerText = pnj.rango.join(", ");
     especie.innerText = pnj.especie;
     genero.innerText = pnj.genero;
     año.innerText = pnj.año;
+
     if (pnj.rango.length > 1) {
-        if (pnj.rango.length == 3) {navsArr[2].removeAttribute("style");}
-        slider.removeAttribute("style");
+        sliderNav.removeAttribute("style");
+        if (pnj.rango.length == 3) {
+            navsArr[2].removeAttribute("style");
+        }
         if (pnj.id == 1) {
             backghround.classList.value = `perfil-img perfil-bg-verde`
         } else {backghround.classList.value = `perfil-img perfil-bg-${charDB[pnj.id].bgColor}`;}
@@ -173,6 +177,7 @@ const mostrarData = (pnj)=> {
     } else {
         backghround.classList.value = `perfil-img perfil-bg-${charDB[pnj.id].bgColor}`;
         imagen.setAttribute("src", pnj.img[pnj.img.length-1]);
+        imagen.setAttribute("data-active", "");
     }
 
     mostrarArma(pnj);
@@ -216,7 +221,8 @@ volverBtn.addEventListener("click", ()=>{
         planetaImg.setAttribute("src", "");
         planetaImg.classList.replace("fadeout", "display-none");
         volverBtn.classList.replace("fadeout", "display-none");
-        imagen.setAttribute("SRC", "");
+        imagen.setAttribute("src", "");
+        sliderNav.style.display = "none";
     }, 500);
     mainSection.classList.replace("display-none", "fadein");
     filtro.classList.replace("display-none", "fadein");
@@ -224,7 +230,6 @@ volverBtn.addEventListener("click", ()=>{
     arma.classList.add("translate-right");
 
     navsArr[2].setAttribute("style", "display: none;");
-    slider.setAttribute("style", "display: none;");
     for (let id in imgsArr) {
         imgsArr[id].setAttribute("src", "");
         imgsArr[id].removeAttribute("data-active");

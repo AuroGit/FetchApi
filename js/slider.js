@@ -1,10 +1,8 @@
 import { backghround } from "./charData.js";
 
-export const slider = document.querySelector(".slider");
-
-const img1 = document.getElementById("slider-1");
-const img2 = document.getElementById("slider-2");
-const img3 = document.getElementById("slider-3");
+const img1 = document.getElementById("imagen");
+const img2 = document.getElementById("imagen-2");
+const img3 = document.getElementById("imagen-3");
 export const imgsArr = [img1, img2, img3];
 
 const nav1 = document.getElementById("rango-1");
