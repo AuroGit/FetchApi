@@ -49,7 +49,7 @@
         "lsCount" : 2,
         "lsType" : ["normal", "normal"],
         "lsColor" : ["azul", "azul"],
-        "lsImg" : ["./assets/sables/ls-obiWanKenobi-1.png", "./assets/sables/ls-ObiWanKenobi-2.png"],
+        "lsImg" : ["./assets/sables/ls-obiWanKenobi-1.png", "./assets/sables/ls-obiWanKenobi-2.png"],
         "bgColor": "azul"
     },
     {
