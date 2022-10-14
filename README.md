@@ -11,5 +11,4 @@ complementada con información sobre las armas de cada personaje añadida por mi
 Las fichas de personaje incluyen datos sobre cada personaje, sobre su planeta natal y sobre su/s arma/s.
 
 //Importante//
-La web aún no es 100% responsive. Se recomienda visualizar en laptop, ordenadores de sobremesa o tablets, 
-pero en modo landscape para un 100% de posibilidad de interacción.
+Se recomienda visualizar en CHROME visualizar en laptop, ordenadores de sobremesa o tablets, a PANTALLA COMPLETA.
