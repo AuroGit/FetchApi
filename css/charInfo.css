@@ -85,12 +85,14 @@
 
     /* Datos */
 .datos{
-    width: 90%;
-    max-width: 300px;
+    width: fit-content;
     margin-top: 20px;
 }
 .datos>ul{list-style: none;}
-.datos>ul>li{margin-bottom: 10px;}
+.datos>ul>li{
+    margin-bottom: 10px;
+    line-height: 24px;
+}
 .datos ul li *{display: inline;}
 .datos>ul>li>p{margin-left: 10px;}
 

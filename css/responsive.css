@@ -8,6 +8,7 @@
 }
 
 /* Data */
+    /* Estandar */
 @media screen and (orientation: landscape) {
     .return-btn{
         position: fixed;
@@ -26,7 +27,7 @@
         border-right: solid 1px #444;
     }
 }
-
+    /* Tablet */
 @media (orientation: portrait) or ((max-width: 1023px) and (max-height: 599)) {
     .return-btn{
         position: fixed;
@@ -38,7 +39,7 @@
     .ficha{
         position: absolute;
         width: 100vw;
-        top: 50%;
+        top: 75%;
         background-color: rgba(32,32,32,.9);
         border-top: solid 1px #444;
     }
