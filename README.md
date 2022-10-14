@@ -1,4 +1,4 @@
-# fetchApi
+# FetchApi
 
 [Knights] - a STAR WARS web -
 Es una web realizada como proyecto de JavaScript para practicar con Promises, HttpRequests, Callbacks y, en general, Html, Css y JS.
