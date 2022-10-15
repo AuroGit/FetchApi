@@ -17,7 +17,7 @@ img{
 
 /* Background */
 body{
-    background-image: url("/assets/Starfield.png");
+    background-image: url("../assets/Starfield.png");
     background-color: #000008;
     color: #fff;
     overflow-x: hidden;
